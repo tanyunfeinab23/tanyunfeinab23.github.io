@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>        
+            img{
+                width: 500px;
+                height: 500px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+            <div id="box"  v-oon="">
+           		<ul class="list"></ul>
+            </div>
+    </body>
+    <script src="vue-resource.js"></script>
+    <script src="vue.js"></script>
+    <script type="text/javascript">
+    	Vue.directive("oon",{
+    		inserted(dom,data){
+    			var oUl = document.querySelector('.list');
+		var arr = ['https://photo.tuchong.com/1502782/f/165873571.jpg','https://photo.tuchong.com/1502782/f/479004593.jpg','https://photo.tuchong.com/3262232/f/90179442.jpg','https://photo.tuchong.com/1502782/f/356386727.jpg','https://photo.tuchong.com/1528557/f/548931500.jpg','https://photo.tuchong.com/959614/f/8871267.jpg','https://photo.tuchong.com/3262232/f/532743983.jpg','https://photo.tuchong.com/3451538/f/497879064.jpg','https://photo.tuchong.com/1502782/f/61474741.jpg','https://photo.tuchong.com/3451538/f/435881805.jpg','https://photo.tuchong.com/3262232/f/651887432.jpg','https://photo.tuchong.com/1834467/f/7883219.jpg','https://photo.tuchong.com/959614/f/8871260.jpg','https://photo.tuchong.com/5469328/f/586614698.jpg','https://photo.tuchong.com/3451538/f/93194277.jpg','https://photo.tuchong.com/2463054/f/18203129.jpg','https://photo.tuchong.com/1038102/f/18739079.jpg','https://photo.tuchong.com/363828/f/11458861.jpg','https://photo.tuchong.com/1502782/f/61474741.jpg','https://photo.tuchong.com/1319696/f/18575761.jpg','https://photo.tuchong.com/1834467/f/7883221.jpg','https://photo.tuchong.com/1834467/f/7883220.jpg','https://photo.tuchong.com/363828/f/11458864.jpg','https://photo.tuchong.com/3353838/f/226101129.jpg','https://photo.tuchong.com/6453118/f/552601448.jpg','https://photo.tuchong.com/363828/f/11443861.jpg','https://photo.tuchong.com/1777202/f/30652497.jpg','https://photo.tuchong.com/1157099/f/421201932.jpg','https://photo.tuchong.com/2356656/f/441845280.jpg','https://photo.tuchong.com/1502782/f/297666432.jpg','https://photo.tuchong.com/3262232/f/127338357.jpg','https://photo.tuchong.com/1483878/f/33315100.jpg','https://photo.tuchong.com/2356656/f/441845280.jpg','https://photo.tuchong.com/3262232/f/223610751.jpg','https://photo.tuchong.com/1157099/f/38143928.jpg','https://photo.tuchong.com/410709/f/19611599.jpg','https://photo.tuchong.com/1554764/f/190449592.jpg','https://photo.tuchong.com/1618033/f/9657897.jpg','https://photo.tuchong.com/1502782/f/505677703.jpg','https://photo.tuchong.com/455350/f/210765715.jpg','https://photo.tuchong.com/1016407/f/322635617.jpg','https://photo.tuchong.com/5362112/f/641992617.jpg','https://photo.tuchong.com/1184765/f/20548204.jpg','https://photo.tuchong.com/1834467/f/7883218.jpg','https://photo.tuchong.com/1707218/f/10269482.jpg','https://photo.tuchong.com/4968587/f/235668840.jpg','https://photo.tuchong.com/3262232/f/569771804.jpg','https://photo.tuchong.com/2299484/f/14795479.jpg','https://photo.tuchong.com/4968587/f/75105663.jpg','https://photo.tuchong.com/363828/f/11433261.jpg','https://photo.tuchong.com/1502782/f/189335470.jpg','https://photo.tuchong.com/2299484/f/14795473.jpg','https://photo.tuchong.com/1502782/f/43780048.jpg','https://photo.tuchong.com/363828/f/11433262.jpg','https://photo.tuchong.com/363828/f/11433267.jpg','https://photo.tuchong.com/1502782/f/466683283.jpg','https://photo.tuchong.com/363828/f/11456393.jpg','https://photo.tuchong.com/363828/f/11456394.jpg','https://photo.tuchong.com/1502782/f/365823949.jpg','https://photo.tuchong.com/3262232/f/632554252.jpg','https://photo.tuchong.com/3262232/f/187826954.jpg','https://photo.tuchong.com/2299484/f/14795478.jpg','https://photo.tuchong.com/1502782/f/43911188.jpg','https://photo.tuchong.com/1707218/f/10269481.jpg','https://photo.tuchong.com/1502782/f/238486944.jpg','https://photo.tuchong.com/1502782/f/476775914.jpg','https://photo.tuchong.com/1502782/f/559941118.jpg','https://photo.tuchong.com/1502782/f/278005704.jpg','https://photo.tuchong.com/1502782/f/559941118.jpg','https://photo.tuchong.com/1502782/f/321194004.jpg','https://photo.tuchong.com/1502782/f/452134951.jpg','https://photo.tuchong.com/3281883/f/630261560.jpg','https://photo.tuchong.com/1502782/f/444270570.jpg','https://photo.tuchong.com/1319696/f/18575764.jpg'];
+
+		arr.forEach((item, index, arr)=>{
+			var oLi = document.createElement('li');
+			var oImg = document.createElement('img');
+			oImg.setAttribute('data-url', item);
+			oLi.appendChild(oImg);
+			oUl.appendChild(oLi);
+		})
+		var aLi = oUl.querySelectorAll('li');
+
+
+		/*
+			可视区高度：  ch
+			滚动距离：    st
+			元素距离顶部的位置：  t
+
+				st+ch>=t   ||   st>=t-ch
+ 		*/
+		var ch = document.documentElement.clientHeight;
+
+		onscroll = () => {
+			var st = document.documentElement.scrollTop || document.body.scrollTop;
+			
+			for(var i=0,len=aLi.length;i<len;i++){
+				if(st+ch>=aLi[i].offsetTop){
+					var oImg = aLi[i].querySelector('img');
+					oImg.src = oImg.getAttribute('data-url');
+				}
+			}
+
+		}
+    		}
+    	})
+      new Vue({
+      	el:'#box',
+      })
+    </script>
+</html>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	* {
+			padding: 0;margin: 0;
+		}
+		#box {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+		}
+</style>
+<body>
+	<div id="box" v-node="">
+		
+	</div>
+</body>
+<script src="vue.js"></script>
+<script src="vue-resource.js"></script>
+<script type="text/javascript">
+		Vue.directive('node', function(a, b) {
+			var isDown = false;
+			a.onmousedown = function(e) {
+				x = e.clientX;
+				y = e.clientY;
+				l = a.offsetLeft;
+				t = a.offsetTop;
+				isDown = true;
+				a.style.cursor = 'move';
+			}
+			window.onmousemove = function(e) {
+				if (isDown == false) {
+					return;
+				}
+				var nx = e.clientX;
+				var ny = e.clientY;
+				var nl = nx - (x - l);
+				var nt = ny - (y - t);
+				a.style.left = nl + 'px';
+				a.style.top = nt + 'px';
+			}
+			a.onmouseup = function() {
+				isDown = false;
+				a.style.cursor = 'default';
+			}
+		})
+	new Vue({
+		el:"#box",
+		data:{
+
+		},
+
+	})
+</script>
+</html>
