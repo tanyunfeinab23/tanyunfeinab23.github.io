@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			[v-cloak] {
+				display: none;
+			}
+			   #main {
+            width: 100%;
+            height: 500px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+       #main ul,
+       #main li,
+       #main img {
+            width: 100%;
+            height: 100%;
+        }
+        
+       #main li {
+            position: absolute;
+        }
+        
+        .enter {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -50%;
+            z-index: 9999;
+        }
+        
+        .enter button {
+            width: 50px;
+            height: 50px;
+            border:#000;
+            font-size: 40px;
+            background-color:#000;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+        }
+        
+		</style>
+	</head>
+	<body>;
+		<div id="box" v-cloak="" style="padding:0 100px;">
+			<a-lee style="margin-bottom: 30px;">
+				<h3 slot="titles" style="font-size: 28px;color: rgb(128, 128, 128);font-family: 微软雅黑;">旅行日记</h3>
+				<div slot="text" style="border-top:2px #ccc solid;border-bottom:2px #ccc solid;height: 60px; margin-bottom: 30px ">
+				<ul style="margin: 0 auto;width:60%;height: 60px;display: flex; line-height: 60px;">
+					<li style="flex: 1;">首页</li>
+					<li style="flex: 1;">关于我们</li>
+					<li style="flex: 1;">我们的理念</li>
+					<li style="flex: 1;">艺术篇</li>
+					<li style="flex: 1;">旅行篇</li>
+					<li style="flex: 1;">博客</li>
+				</ul>
+				</div>
+				<div slot="content" style="text-align: center; margin-bottom:50px;">
+					<lee :nihao='arr' style="width:100%;height:500px;"></lee>
+				</div>
+				<div slot="iocs" style="margin:0 auto;">
+					<no v-for="i in json" :A='i' style="width:33%;float: left;">
+					</no>
+				</div>
+				<div slot="foot">
+					<img src="https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvNDAwMjY1M2Y5NzFjYjBhN2FmYzExNjlkMjkwNjkxYWEtMTY4eDEyNi5wbmc_p_p100_p_3D.png">
+				</div>
+				<div slot="p">
+					<p>Copyright ©2005-2016 Personal  Website</p>
+				</div>
+			</a-lee>
+		</div>
+
+    <template id="lee">
+             <div>
+                    <div @mouseenter="out()" @mouseleave="enter_in()"id="main">
+                                <li v-for="(item,index) in arr" :key="item" v-show="num==index">
+                                    <img :src="item" />
+                                </li>             
+                            <div class="enter">
+                                <button @click="left()" style="float: left">&lt;</button>
+                                <button @click="right()" style="float: right">&gt;</button>
+                            </div>
+                        </div>
+             </div>
+		</template>
+
+
+		<template id="nod">
+			<div>
+				<div style="text-align: center;">
+					<div style="margin-bottom: 30px;">
+						<slot name="titles"></slot>
+					</div>
+					<div>
+						<slot name="text"></slot>
+					</div>
+				<div style="min-height: 200px;overflow: hidden; ">
+					<slot name="content" style="background-color: #ccc;">
+					</slot>
+				</div>
+					<div>
+						<div>
+							<slot name="iocs"></slot>
+							<slot name="span"></slot>
+						</div>
+					</div>
+					<div style="margin-bottom: 30px;"> 
+						<slot name="foot" ></slot>
+					</div>
+					<div>
+						<slot name="p"></slot>
+					</div>
+				</div>
+			</div>
+		</template>
+	<template id="jave">
+		<div style="text-align: center; padding: 23px 0px;">	
+		   <div >
+		   	<img :src="json.a">
+		   	<div style="margin: 20px 0;">{{json.b}}</div>
+		   </div>
+		</div>
+		
+	</template>
+	</body>
+	<script src="../vue.js"></script>
+	<script>Vue.component('aLee',{
+	template:'#nod',
+	data(){
+		return {
+			a:0
+		}
+	},
+	
+})
+   Vue.component('lee', {
+            template: '#lee',
+            props: ['nihao'],
+            data() {
+                return {
+                    num: 0,
+                    ind: 1,
+                    type: false,
+                    dir: null, //方向
+                    arr: this.nihao
+                }
+            },
+            methods: {
+                right() {
+                    this.dir = 'right'
+                    this.ind++;
+                    if (this.num >= this.arr.length - 1) {
+                        return this.num = 0;
+                    } else {
+                        return this.num++;
+                    }
+                },
+                left() {
+                    this.dir = 'left'
+                    this.ind++;
+                    console.log(this.num);
+                    if (this.num <= 0) {
+                        return this.num = 4;
+                    } else {
+                        return this.num--;
+                    }
+                },
+                out() {
+                    this.type = true;
+                },
+                enter_in() {
+                    this.type = false;
+                }
+            }
+
+        })
+  	Vue.component('no',{
+		template:"#jave",
+		props:['A'],
+		data(){
+			return{
+				a:0,
+				json:this.A
+			}
+		}
+
+
+	}) 
+new Vue({
+	el:"#box",
+	data:{
+		a:12,
+		arr: [
+               'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvMjFhMGYyYTFiNGExZjQxYTIxZmJhYThiYzQwZTQ5NGEtMTA0OHgzOTIuanBn.jpg',
+               'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvOWQyMmUzZjY3MDZmMTRmNmI5MmY3ODBlZTk3ZTdkYmQtMTAyNHgzODMuanBn.jpg',
+               'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvMjQzZDcxNWJkMDIxNmMyNDkwYWMzNzk2ZDJkYWRjMjAtMTA0OHgzOTIuanBn.jpg'
+              ],
+          json:[
+         		{a:'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvZjJkNzBkZGQwZTM5NmMzMmEyNTlkMmQyN2IwOTYzYjYtNDAweDQwMC5qcGc_p_p100_p_3D.jpg',b:'About'},
+				{a:'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvODZhZTJlNTBiZjI1MDA3NmU3NmNlYzQzM2MwNTAzMmItNDAweDQwMC5qcGc_p_p100_p_3D.jpg',b:'Gallery'},
+			   {a:'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvNDcyZjEyMTU0M2U0YmRhZmQ0ZWQ1MTkzYThhYTU5NDItNDAweDQwMC5qcGc_p_p100_p_3D.jpg',b:'Contact'},
+         ]     
+	}
+})
+	</script>
+
+</html>
