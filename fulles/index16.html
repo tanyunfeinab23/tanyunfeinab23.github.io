@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div style="height: 50px;line-height: 50px;background-color: #ccc;">
+			<a href="#/">首页</a>
+			<a href="#/no2">商品</a>
+			<a href="#/no3">地图</a>
+		</div>
+		<div style="min-height:500px;">
+			{{$route.path}}
+			<router-view></router-view>
+		</div>
+			<div style="height: 150px;line-height: 50px;background: #ccc;"></div>
+		</div>
+	</div>
+<template id='no1'>
+	<div>
+		<no1></no1>
+		{{route.path}}
+		首页
+	</div>
+</template>
+<template id="no2">
+	<div>
+		<div style="width: 200px;float: left;border-right: 1px soild #ccc;min-height: 700px;line-height: 50px; ">
+				<div>
+			<a href="#/no2/">
+			服饰
+			</a>
+		</div>
+		<div>
+			<a href="#/no2/no1">
+			首饰
+			</a>
+		</div>
+			
+		</div>
+		<div style="min-height: 700px;float: :left;">
+			<router-view></router-view>
+		</div>
+
+	</div>
+</template>
+<template id="no3">
+		  	<div>
+		  		地图
+		  	</div>
+		  </template>	
+</body>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script type="text/javascript">
+	var routes=[
+	{
+		path:"/",
+		component:{template:"#no1"}
+	},
+	{
+		path:"/no2",
+		component:{template:"#no2"},
+		children:[
+			{path:"/",
+		component:{template:"<p>服饰</p>"}},
+				{path:'no1',component:{template:'<p>首饰</p>'}}
+		]	
+	},
+	{
+		path:"/no3",
+		component:{template:"#no3"}
+	},
+	]
+	var router = new VueRouter({
+		routes
+	})
+new Vue({
+	el: "#box",
+	router,
+	mounted(){
+	
+	},
+	watch:{
+		'$route.path'(a,b){
+			console.log(a,b)
+		}
+	}
+})
+Vue.component('no1',{
+	template:'<p>hello</p>'
+})
+</script>
+</html>

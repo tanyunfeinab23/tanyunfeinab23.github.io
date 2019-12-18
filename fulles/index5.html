@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		[v-cloak]{
+			display: none; 
+		}
+		.co{
+			background:#ddd;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" v-cloak="">
+		<div style="width: 496px;margin:50px auto;">
+			<lee :boxarr="arr"></lee>
+		</div>
+	</div>
+	<template id="no1">
+		<div>
+			<div style="overflow: hidden;line-height: 50px;border:solid 1px #ddd;">
+				<div v-for="(i,$index) in arr" style="float: left;padding:0 44px;" @click="index=$index" :class="$index==index?'co':''">{{i.title}}</div>
+			</div>
+			<div style="line-height:40px;border:solid 1px #ddd;height: 300px;">
+				<div v-for="(i,$index) in arr" v-show="index==$index" style="padding:0 30px;">
+					{{i.content}}
+				</div>
+				<img :src="i.text" v-for="(i,$index) in arr" v-show="index==$index" style="color: #ccc;padding:0 30px; width: 300px;height: 100%;">
+			</div>
+		</div>
+	</template>
+</body>
+<script src="../vue.js"></script>
+<script>
+	Vue.component('lee',{
+		template:"#no1",
+		props:['boxarr'],
+		data(){
+			return{
+				index:0,
+				arr:this.boxarr
+			}
+		}
+	})
+	new Vue({
+		el:"#box",
+		data:{
+			arr:[
+				{title:"One",content:"第一章",text:"img/24.jpg"},
+				{title:"Two",content:"第二章",text:"img/63bc1b9306d0acf353be8cbc2d792b2b.jpg"},
+				{title:"Three",content:"第三章",text:"img/love.jpg"},
+				{title:"Four",content:"第四章",text:"img/24.jpg"},
+				]
+		}
+	})
+</script>
+</html>

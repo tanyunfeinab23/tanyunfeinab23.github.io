@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<cav style="float: left;width: 300px;margin:10px;" v-for=" i in arr"  :ad='i'></cav>
+	</div>
+	<template id="nd">
+			<div style="text-align: center; padding: 23px 0px;">
+				<h3>{{json.a}}</h3>	
+				<img :src="json.b" style="width: 300px;height: 400px;">
+			</div>
+	</template>
+</body>
+
+<script src="vue.js"></script>
+<script>
+	Vue.component('cav',{
+		template:"#nd",
+		props:['ad'],
+		data(){
+			return{
+				json:this.ad
+			}
+		}
+
+
+	})
+	new Vue({
+		el:"#box",
+		data:{ 
+			arr:[
+				{a:"第一章",b:"img/24.jpg"},
+				{a:"第二章",b:"img/63bc1b9306d0acf353be8cbc2d792b2b.jpg"},
+				{a:"第三章",b:"img/63bc1b9306d0acf353be8cbc2d792b2b.jpg"},
+				{a:"第四章",b:"img/love.jpg"}
+			]
+		}
+	})
+	
+</script>
+</html>

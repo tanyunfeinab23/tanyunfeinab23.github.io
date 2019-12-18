@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<on1 :num="num" @on1="num_btn"></on1>
+		<on2 :num="num"></on2>
+	</div>
+	<template id="on1">
+		<div>
+		on1：{{on1}}<button @click="btn">+</button>
+		</div>
+	</template>
+	<template id="on2">
+		<div>
+	on2：{{on2}}<button @click="btn">+</button>
+		</div>
+	</template>
+</body>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	var bus = new Vue()
+	Vue.component('on1',{
+		template:"#on1",
+		props:['num'],
+		data(){
+			return{
+				on1:this.num
+			}
+		},
+		mounted(){
+			bus.$on('on2',(a)=>{
+				this.on1=a
+				console.log(a)
+			})
+		},
+		methods:{
+			btn(){
+				this.on1++
+				this.$emit('on1',this.on1)
+			}
+		},
+		watch:{
+			num(a,b){
+				this.on1=a
+				console.log(a,b)
+			}
+		}
+	})
+Vue.component('on2',{
+		template:"#on2",
+		props:['num'],
+		data(){
+			return{
+				on2:this.num
+			}
+		},
+		methods:{
+			btn(){
+				this.on2++
+				bus.$emit('on2',this.on2)
+			}
+		},
+		watch:{
+			num(a,b){
+				this.on2=a
+				console.log(a,b)
+			}
+		}
+	})
+	new Vue({
+		el:'#box',
+		data:{
+		   num:0
+		},
+		methods:{
+			num_btn(a){
+				this.num=a
+				console.log(a)
+			}
+		}
+		
+	})
+</script>
+
+</html>

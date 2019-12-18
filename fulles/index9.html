@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		这是父级:{{num}}<button @click="num++">+</button>
+		<on1 :num="num" @on1="num_btn"></on1>
+	</div>
+	<template id="on1">
+		<div>
+			这是on1：{{on1}}<button @click="btn">+</button><br>
+		</div>
+	</template>
+</body>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+	Vue.component('on1',{
+		template:"#on1",
+		props:['num'],
+		data(){
+			return{
+				on1:this.num
+			}
+		},
+		methods:{
+			btn(){
+				this.on1++
+				this.$emit('on1',this.on1)
+			}
+		},
+		watch:{
+			num(a,b){
+				this.on1=a
+				console.log(a,b)
+			}
+		}
+	})
+
+	new Vue({
+		el:'#box',
+		data:{
+		   num:0
+		},
+		methods:{
+			num_btn(a){
+				this.num=a
+				console.log(a)
+			}
+		}
+		
+	})
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Docment</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<dom style="float: left;width: 300px;margin:10px; " v-for=" i in arr"  :A='i'>
+		</dom>
+	</div>
+	<template id="dom">
+			<div style="text-align: center; padding: 23px 0px;">
+			<img :src="arr.a">
+		   <div style="margin: 20px 0;">{{arr.b}}</div>	
+		   <div style="">
+		   	{{arr.c}}
+		</div>
+	</template>
+</body>
+<script src="vue.js"></script>
+<script type="text/javascript">
+	Vue.component('dom',{
+		template:"#dom",
+		props:['A'],
+		data(){
+			return{
+				arr:this.A
+			}
+		}
+
+
+	})
+	new Vue({
+		el:"#box",
+		data:{
+         arr:[
+         	{a:'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvMjFhMGYyYTFiNGExZjQxYTIxZmJhYThiYzQwZTQ5NGEtMTA0OHgzOTIuanBn.jpg',b:'服 务 介 绍',c:'応损捠捡换攳，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧！圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢'},
+				{a:'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvOWQyMmUzZjY3MDZmMTRmNmI5MmY3ODBlZTk3ZTdkYmQtMTAyNHgzODMuanBn.jpg',b:'服 务 介 绍',c:'応损捠捡换攳，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧！圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢'},
+				{a:'https://ccdn.goodq.top/caches/1f6a588ef8d15139fc379ea62fde10d4/aHR0cHM6Ly81NjljODRiOWNiNDUzLnQ3NC5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvMjQzZDcxNWJkMDIxNmMyNDkwYWMzNzk2ZDJkYWRjMjAtMTA0OHgzOTIuanBn.jpg',b:'服 务 介 绍',c:'応损捠捡换攳，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧！圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢'},
+         ]
+
+		}
+
+	})
