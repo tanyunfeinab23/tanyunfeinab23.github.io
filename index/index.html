@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="swiper-4.5.0/dist/css/swiper.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+		[v-cloak]{
+			display: none;
+		}
+		.nav>a{
+				margin-right: 10px;
+		}
+		
+		 #main {
+            width: 100%;
+            height: 500px;
+            margin: 0 30px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+       #main ul,
+       #main li,
+       #main img {
+            width: 100%;
+            height: 100%;
+        }
+        
+       #main li {
+            position: absolute;
+        }
+        
+        .enter {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -50%;
+            z-index: 9999;
+        }
+        
+        .enter button {
+            width: 300px;
+            height: 200px;
+            border:#000;
+            font-size: 40px;
+            background-color:#000;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            opacity: 0;
+        }
+        .ul1>li{
+			flex:1;
+			list-style: none;
+			text-align: center;
+			color: #aaa;
+			margin-top: 40px;
+			
+        }
+        .ul1>li:hover div{
+        	
+        	transform:translateY(-10px);
+        	-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+        	   -moz-transition: all 0.3s ease-out;  /* FF4+ */
+        	    -ms-transition: all 0.3s ease-out;  /* IE10? */
+        	     -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+        	        transition: all 0.3s ease-out;
+
+        }
+        .ul1>li div:hover div{
+				color: #e30083 ;
+				-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+        	   -moz-transition: all 0.3s ease-out;  /* FF4+ */
+        	    -ms-transition: all 0.3s ease-out;  /* IE10? */
+        	     -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+        	        transition: all 0.3s ease-out;
+        }
+        .ul1>li h2{
+        	font-size: 42px;
+        }
+        .ul1>li p{
+        	font-size: 14px;
+        }
+        .clearfix::after{
+		
+		content:'';
+		display:block;
+		width:0px;
+		height:0px;
+		visibility:hidden;
+		clear:both;
+		
+		}
+		.clearfix{
+			
+			zoom:1;
+			}
+			.pass>li{
+				flex: 1;
+
+			}
+			.pass>li:hover{
+				background-color:rgba(0,0,0,.5);
+			}
+			.pass>li div:hover{
+				transform:translateY(-20px);
+        	-webkit-transition: all 0.3s ease-out;  
+        	   -moz-transition: all 0.3s ease-out;  
+        	    -ms-transition: all 0.3s ease-out;  
+        	     -o-transition: all 0.3s ease-out;  
+        	        transition: all 0.3s ease-out;
+			}
+		.uld>li{
+			flex: 1;
+			padding: 0 30px;	
+			}
+			#books>li{
+				flex: 1;
+				width: 24px;
+				height: 24px;
+
+			}
+			.ak a{
+				margin-right: 40px;
+				color: #9999;
+			}
+			.ak a:hover{
+				color: #e30083;
+				text-decoration: none;
+			}
+			#int img{
+				width:100%;
+				height: 390px; 
+			}
+			.hs3 h2:hover{
+				color:#e30083 !important;
+
+			}
+			.allt:hover{
+				color:#e30083 !important;
+			}
+			.allt>a:hover{
+				text-decoration: none;
+				color:#e30083 !important;
+			}	
+	</style>
+</head>
+<body>
+	<div id="box" v-cloak="">
+		<div style="height: 60px;line-height: 60px;padding: 0 100px;display: flex;border-bottom:1px #ccc solid;border-top:none !important; ">
+			<div style="flex: 1; ">
+				<img style="width: 206px;line-height: 60px;padding: 12px 0;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvYTNkMjAyZDQ0M2I5NzNiYThiYjkyNGUzYWU3N2UzYjYucG5n.png">
+			</div>
+			<div class="ak" style="flex: 1; text-align: right;" class="nav">
+				<a href="#/">首页</a>
+				<a href="#/product">产品介绍</a>
+				<a href="#/news/type/0">新闻中心</a>
+				<a href="#/join">加入我们</a>
+				<a href="#/contact">联系我们</a>
+			</div>
+		</div>
+		<div style="min-height: 500px;">
+			<div style="min-height: 300px;"> 
+				<router-view></router-view>
+			</div>
+			<div style="height:180px;padding: 0 200px;">
+				<div>
+					<ul class="uld" style="display: flex;">
+						<li>
+							<mr>
+								<h3 slot="head" style="font-size: 15px;margin-bottom: 20px;text-align: left;">关于我们</h3>
+								<div slot="foot"  style="text-align: left; font-size: 12px;color:#a9a9a9;" class="clearfix">
+									<p style="line-height: 23px;">可视化图文内容编辑让网站制作和维护成为一件轻松的事。普通用户还是专业制作人员都能使用起飞页设计出最具专业水准的网站。</p>
+								</div>
+							</mr>
+						</li>
+						<li>
+							<mr>
+								<h3 slot="head" style="font-size: 15px;margin-bottom: 20px;text-align: left;">联系我们</h3>
+								<div slot="foot"  style="text-align: left; font-size: 12px;line-height: 20px;color:#a9a9a9;" class="clearfix">
+									<p>咨询电话 : 4000-000-100</p>
+									<p>商务合作 : abc@abcde.com</p>
+									<p>联系我们 : abcd@abcde.com</p>
+								</div>
+							</mr>
+						</li>
+						<li>
+							<mr>
+								<h3 slot="head" style="font-size: 15px;margin-bottom: 20px;text-align: left;">帮助与支持</h3>
+								<div slot="foot"  style="text-align: left; font-size: 12px;line-height: 20px;color:#a9a9a9;" class="clearfix">
+									<p>帮助中心</p>
+									<p>服务条款</p>
+									<p>常见问题</p>
+								</div>
+							</mr>
+						</li>
+						<li>
+							<mr>
+								<h3 slot="head" style="font-size: 15px;margin-bottom: 20px;text-align: left;">关于我们</h3>
+								<div slot="foot"  style="text-align: left; font-size: 12px;" class="clearfix">
+								<img src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cDovLzU3YTdlNmFhZjJmNzgudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wOS84ZjM0YTQ3OWZiZjExZWE5NzUwMmI2ZWUyYWIwODJhNS5qcGc_p_p100_p_2FYXR0YWNobWVudF9pZD0xMDg3Mw_p_p100_p_3D_p_p100_p_3D.jpg" style="width: 76px;height: 76px;">
+								</div>
+							</mr>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div style="height: 50px;line-height: 50px;text-align: center;background-color: #ccc;">
+			<p> 版权所有 有限公司©2020   地址：苏州市工业园区金鸡湖大道99号    苏ICP备0001000号</p>
+		</div>
+	</div>
+	<!--首页-->
+	<template id="index">
+		<div>
+			<div style="background-color:#f0f0f0;min-height: 200px;text-align: center;padding: 80px 0;">
+				<div style="height: 80px;">
+					<h3 style="font-size:20px;color: #c6c6c6">主推产品</h3>
+					<p style="font-size: 12px;color: #BFBFBF;">PRODUCT</p>
+				</div>
+				<span style="display: block;background-color: #E30083;height: 2px;width: 30px;margin: 0 auto;"></span>
+				<div class="lb">
+					<lee :nihao='arr' style="width:100%;height:500px;"></lee>
+				</div>
+				<div>
+					<span style="font-size: 68px;">U</span><span style="font-size: 68px;">m</span><span font-size="26px;">360</span>
+				</div>
+				<div>
+					<p>精细快速低剂量成像，高效安全扫描体验</p>
+				</div>
+			</div>
+			<!--2000+-->
+			<div style="width: 100%;height: 185px;  ">
+				<div style="padding:  0 100px;height: 185px;" >
+					<div style="height: 185px; position: relative;top:-50px;left:0;background-color:#fff;box-shadow: 5px 5px 5px">
+						<ul class="ul1" style=";display: flex;">
+							<li style="border-right: 1px #ccc solid;">
+								<div>
+									<div>
+										<h2 >1200+</h2>
+										<p>成功案例</p>
+									</div>
+								</div>
+							</li>
+							<li style="border-right: 1px #ccc solid;">
+								<div>
+									<div>
+										<h2>010+</h2>
+										<p>解决方案</p>
+									</div>
+								</div>
+								
+							</li>
+							<li style="border-right: 1px #ccc solid;">
+								<div>
+									<div>
+										<h2>010+</h2>
+										<p>解决方案</p>
+									</div>
+							</li>
+							<li > 
+								<div>
+									<div>
+										<h2>050</h2>
+										<p>技术专利</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>	
+				</div>	
+			</div>
+			<!--内容NEWS-->
+			<div>
+				<m-a class="hs3">
+					<h2  slot="title" style="font-size: 50px;color: #e5e5e5;" >NEWS</h2>
+					<span slot="icon" style="font-size: 22px;">产品系列</span>
+					<div slot="content"  style="padding: 0 100px; " class="clearfix">
+						<no2  v-for="i in json" :A='i'></no2>
+					</div>
+				</m-a>
+			</div>
+			<!--内容PRODUCT-->
+			<div style="padding: 0 200px;">
+				<m-a class="hs3">
+					<h2 slot="title"style="font-size: 50px;color: #e5e5e5;" >PRODUCT</h2>
+					<span slot="icon" style="font-size: 22px;">产品系列</span>
+					<div slot="content"  style=" background-image: url('https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvMjExZjA1MDk4N2U4MjAxZDgxMTZhM2RmNTZkZWE2ZDkuanBn.jpg'); background-attachment: fixed;" class="clearfix">
+						<div style="width:100%;height: 550px;text-align: center;">
+							<ul class="pass" style="display: flex;">
+								<li style="border-right: 1px solid #666;">
+									<div>
+										<div class="pass-one" style="height:550px;text-align: center;font-size: 18px;color:#fff; ">
+											<img src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvMDdiNzYwNTRjMjQwOWZmN2YwM2MxZTFlMjlmOTk4YTYtMjMweDIzMC5wbmc_p_p100_p_3D.png"
+																	style="margin-top: 120px;">
+											<span style="display: block;">THE PROJECT</span>
+											<div>NAME 01</div>
+										</div>
+									</div>
+								</li>
+								<li style="border-right: 1px solid #666">
+									<div>
+										<div style="height:550px;text-align: center;font-size: 18px;color:#fff; ">
+											<img src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvOTAxNzllOTM4ZmFhMTgzZjhiMDFjODgwZjAzNzk3NjctMjMweDIzMC5wbmc_p_p100_p_3D.png"
+																	style="margin-top: 120px;">
+											<span style="display: block;">THE PROJECT</span>
+											<div>NAME 02</div>
+										</div>
+									</div>
+								</li>
+								<li style="border-right: 1px solid #666">
+									<div>
+										<div class="all-box" style="height:550px;text-align: center;font-size: 18px;color:#fff; ">
+											<img src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvM2JlMmUyNDFkNTM4NjBmZmRkNzMzNjNiOWJiMjdjNTMtMjMweDIzMC5wbmc_p_p100_p_3D.png"
+																	style="margin-top: 120px;">
+											<span style="display: block;">THE PROJECT</span>
+											<div>NAME 03</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div>
+										<div style="height:550px;text-align: center;font-size: 18px;color:#fff; ">
+											<img src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDcvZjZmODI0YzZlNGJlZWQ1ZDI0ZmRlZGRlZDBkZmY2ZDktMjMweDIzMC5wbmc_p_p100_p_3D.png"
+																	style="margin-top: 120px;">
+											<span style="display: block;">THE PROJECT</span>
+											<div>NAME 04</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</m-a>
+			</div>
+		</div>
+	</template>
+	<!--产品系列-->
+	<template id="product">
+		<div>
+			<div style="height:400px;background:#f0f0f0;margin-bottom: 40px;">
+				<div style="width:1200px;height:400px; margin: 0 auto;">
+					<div style="width: 600px;height: 400px;float: left;">
+						<div class="swiper-container">
+						    <div class="swiper-wrapper">
+							    <div class="swiper-slide">
+							      	<div style="width: 427px;height: 392px;margin: 0 auto">
+							      		<img style="width: 100%;height: 100%" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvZmVkNjAyMDAyZTZiNjRkYjVhZDg0MmEwN2U5Yjg5ODYucG5n.png" alt="">
+							      	</div>
+							    </div>
+							    <div class="swiper-slide">
+							      	<div style="width: 427px;height: 392px;margin: 0 auto">
+							      		<img style="width: 100%;height: 100%" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvODBkMjY5NjYzNDJmNTM1ZjdkYmEwMjY2OTNmMmQ5ZjcucG5n.png" alt="">
+							      	</div>
+							    </div>
+							    <div class="swiper-slide">
+							      	<div style="width: 427px;height: 392px;margin: 0 auto">
+							      		<img style="width: 100%;height: 100%" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNzY5MDExMmQ0MjIzN2Y5YTg0OWVjNjc0N2NmOGMxYWYucG5n.png" alt="">
+							      	</div>
+							    </div>
+							</div>
+						    <!-- Add Pagination -->
+						    <div class="swiper-pagination"></div>
+						</div>
+					</div>
+					<div style="width: 600px;height: 260px;padding: 140px 0 0 0; float: left;">
+						<div style="height: 58px;margin-left: 180px;">
+							<span style="font-size: 52px;font-family: arial; color: #000;">U</span>
+							<span style="font-size: 52px;font-family: arial;color: #000;">m</span>
+							<span style="font-size: 28px;font-family: arial;color: #000;">360</span>
+						</div>
+						<div style="height: 52px; margin-left: 180px;padding: 16px 0 12px 6px;font-size: 16px;color: #393939;font-weight: bold;">
+							精细快速低剂量成像，高效安全扫描体验
+						</div>
+						<div style="height: 70px;width: 390px;margin:0 auto;">
+							<img style="height: 60px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDcvOTcxNDE3ZTk3OWE1ZjFiZjNhNjZkZjY1YTM4ZjY5N2UtMzAweDE1MC5wbmc_p_p100_p_3D.png" alt="">
+							<img style="height: 60px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDcvYzU3ZTYxMjM3OWM0Mzg5MDdlNTFkODNjOThiNmVlMjQtMzAweDE1MC5wbmc_p_p100_p_3D.png" alt="">
+							<img style="height: 60px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDcvY2M4MmZhNTU4ODJiNGNiYTdlMzk5ZmRkMGIzMjNmNTMtMzAweDE1MC5wbmc_p_p100_p_3D.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="height: 160px;background: #fff;">
+				<div style="width: 1024px;height: 90px;margin: 0 auto;padding-top: 70px;">
+					<div style="height: 60px;text-align: center;font-size: 50px;font-family: tahoma;color: #e5e5e5;font-weight: bold;">PRODUCT</div>
+					<div style="height: 30px;text-align: center;color: #333;font-size: 22px;">
+						<span style="width: 58px;margin-bottom: 8px; border-bottom: 1px solid #ccc;display: inline-block;"></span>
+						产品系列
+						<span style="width: 58px;margin-bottom: 8px;border-bottom: 1px solid #ccc;display: inline-block;"></span>
+					</div>
+				</div>
+			</div>
+			<div style="width: 1200px;height: 928px; padding-top: 20px;padding: 0 250px;">
+				<div style="width: 1200px;height: 35px;padding: 32px 0 28px;">
+					<div style="width:468px;  margin:0 auto;">
+						<div style="width: 100px;height: 30px;color: #aaa;font-size: 13px;border: 1px solid #ccc;line-height: 30px;text-align: center;float: left;margin-right: 20px;">全部设备</div>
+						<div style="width: 100px;height: 30px;color: #aaa;font-size: 13px;border: 1px solid #ccc;line-height: 30px;text-align: center;float: left;margin-right: 20px;">设备分类一</div>
+						<div style="width: 100px;height: 30px;color: #aaa;font-size: 13px;border: 1px solid #ccc;line-height: 30px;text-align: center;float: left;margin-right: 20px;">设备分类二</div>
+						<div style="width: 100px;height: 30px;color: #aaa;font-size: 13px;border: 1px solid #ccc;line-height: 30px;text-align: center;float: left;">设备分类三</div>
+					</div>
+				</div>
+				<div style="width: 1170px;padding:10px 15px 4px ;">
+					<div style="width: 1170px;">
+						<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvODliOWE1ZWI3YjZhYjZkNWZjZjFiNjEyNDAyOWFhMWYtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um350c</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+					</div>
+					<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvOTQ3M2MwZWI4ODE4ZmYzM2Y5OGFmYWY1ODg2N2I4ZjgtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um390i</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+						<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvY2Y4YzM5NDJmMjU5YThmYmMzMDA3OWNiMTQ2NjE2MWYtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um250c</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+						<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvMDE1MmFkNTI5MjBkOWM3YTY4NmM5MjZjOTNhZTczMmMtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um330</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+						<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvOTVlZjIxODM2NWUyOGJiODdhNjkwNWE3NDI4N2IxNWQtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um325</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+						<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvMjZmZDhlZTY1YmM4YTcwZWZkNGNhOWI3OWFmMDg1NWYtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um110</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+						<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvN2Q4YTg0M2ZjODJjNDE3ODdkNTUxNTI1MGZjOWJjZDQtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um215</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+						<div style="width: 232px;height: 309px;float: left;padding:20px;margin:10px 10px 40px 10px;color: #666;font-size: 16px;background: #e9e9e9;">
+							<div style="width: 210px;margin: 0 auto;margin-bottom: 10px;">
+								<img style="width: 210px;height: 210px;" src="https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTcvMDYvMWM4ODFjMGI3Y2JlMzcwZDUwZjNlOGIzN2U1NzE5ODYtMjEweDIxMC5qcGc_p_p100_p_3D.jpg" alt="">
+							</div>
+							<div style="color: #333;padding: 25px 0 8px;font-size: 14px;text-align: center;">仪器设备Um309</div>
+							<div style="color: #999;text-align: center;font-size: 12px;">编辑设备副标题</div>
+						</div>
+				</div>
+			</div>
+
+		</div>
+	</template>
+	<!--新闻中心-->
+	<template id="news">
+		<div>
+			<div style="padding-top:50px;">
+	            <div style="padding:0 100px; height: min-height:500px;" class="clearfix">
+		                <div style="width: 250px;float: left;margin-right:50px;line-height: 40px;height:800px;">
+			                    <div style="min-height: 50px;border:1px #ccc solid;">
+			                    	<div style="width: 250px;background-color: #373a41;color: #fff;">
+			                        <i class="glyphicon glyphicon-list" style="display: inline-block;margin-right: 10px;margin-left: 5px;"></i>
+			                        		全部资讯
+			                        <i class="glyphicon glyphicon-triangle-bottom" style="display: inline-block;margin-left:100px;"></i>
+			                    </div>
+			                    <div class="allt" style="width: 250px;color: #999;border-bottom: 1px #ccc solid;">
+			                        <i class="glyphicon glyphicon-triangle-right" style="display: inline-block;margin-right: 10px;margin-left: 5px;font-size: 8px;"></i>
+			                        	<a href="#/news/type/0"> 
+			                        		企业动态
+			                        	</a>
+
+			                    </div>	
+			                     <div class="allt" style="width: 250px;color: #999;">
+			                        <i class="glyphicon glyphicon-triangle-right" style="display: inline-block;margin-right: 10px;margin-left: 5px; font-size: 8px;"></i>
+			                        		<a href="#/news/type/1"> 
+			                        			行业资讯
+			                        		</a>
+
+			                    </div>
+			                    </div>
+		                </div>
+		                <div style="float: left; width:850px;margin-bottom: 50px;">
+			                <router-view></router-view>
+		                </div>
+	            </div>
+        	</div>
+		</div>
+	</template>
+	<!--加入我们-->
+	<template id="join">
+		<div>
+			<div style="padding-top:50px;">
+	            <div style="padding:0 100px; height: min-height:500px;" class="clearfix">
+		                <div style="width: 250px;float: left;margin-right:50px;line-height: 40px;height:800px;">
+			                    <div style="width: 250px;background-color: #373a41;color: #fff;">
+			                        <i class="glyphicon glyphicon-list" style="display: inline-block;margin-right: 10px;margin-left: 5px;"></i>
+			                        加入我们
+			                        <i class="glyphicon glyphicon-triangle-bottom" style="display: inline-block;margin-left:100px;"></i>
+			                    </div>
+		                </div>
+		                <div style="float: left; width:850px">
+		                  	<min style="margin-bottom: 50px;"></min>
+		                  	<min style="margin-bottom: 50px;"></min>
+		                  	<min style="margin-bottom: 50px;"></min>
+		                </div>
+	            </div>
+        	</div>
+		</div>
+	</template>
+	<!--联系我们-->
+	<template id="contact">
+		<div>
+			<div id="int" style="width: 100%;">
+				<lee :nihao='arr' style="width:;height:500px;"></lee>
+			</div>
+			<div>
+				<div style="padding-top:50px;">
+			            <div style="padding:0 100px; height: min-height:500px;" class="clearfix">
+				                <div style="width: 250px;float: left;margin-right:50px;line-height: 40px;">
+					                    <div style="width: 250px;background-color: #373a41;color: #fff;">
+					                        <i class="glyphicon glyphicon-list" style="display: inline-block;margin-right: 10px;margin-left: 5px;"></i>
+					                        加入我们
+					                        <i class="glyphicon glyphicon-triangle-bottom" style="display: inline-block;margin-left:100px;"></i>
+					                    </div>
+					                   <div>
+					                   	  <p >Um生物科技有限公司</p>
+					                   	  <span style="font-size: 14px;">Um biotechnology Co.,Ltd</span>
+					                   	  <ul style="font-size: 14px">
+					                   	  	<li>联系电话 : 1000 8000</li>
+					                   	  	<li>销售热线：400 8888 8888</li>
+					                   	  	<li>技术服务：400 6666 6666</li>
+					                   	  	<li>公司传真：1000 8000</li>
+					                   	  </ul>
+					                   	  <p style="font-size: 12px;">苏州市工业园区金鸡湖大道0号某某大厦0室</p>
+					                   	  <ul id="books" style="width: 150px;display: flex;">
+					                   	  	<li class="glyphicon glyphicon-copyright-mark"></li>
+					                   	  	<li class="glyphicon glyphicon-copyright-mark"></li>
+					                   	  	<li class="glyphicon glyphicon-copyright-mark"></li>
+					                   	  	<li class="glyphicon glyphicon-copyright-mark"></li>
+					                   	  	<li class="glyphicon glyphicon-copyright-mark"></li>
+					                   	  </ul>
+					                   </div> 
+				                </div>
+				                <div style="float: left; width:890px">
+				                	<iframe style="width:890px;height: 390px;"src="//57a7e6aaf2f78.t73.qifeiye.com/FeiEditor/bitSite/wp/bit_baidumaps.php?g_lat=&g_lng=&moreaddress=&address=%E4%B8%8A%E6%B5%B7&content=%E4%B8%8A%E6%B5%B7%E5%B8%82&zoom=16">
+				                		
+				                	</iframe>
+				                </div>
+			            </div>
+		        	</div>
+			</div>
+		</div>
+	</template>
+	<!--首页轮播图-->
+	<!--主干内容-->
+<template id="A">
+	<div style="text-align: center;margin-bottom: 60px;">
+		<div style="font-size:50px;">
+			<slot name="title"></slot>
+		</div>
+		<div style="padding:30px 0; ">
+			<span style="display: inline-block; height:1px;background-color: #ccc;width: 50px; margin-right: 15px;"></span>
+			<div style="display: inline-block;position: relative;top: 5px;">
+				<slot name="icon" ></slot>	
+			</div>
+			
+			<span style="display: inline-block; height:1px;background-color: #ccc;width: 50px; margin-left:15px;"></span>
+		</div>
+		<div style="min-height: 100px;">
+			<slot name="content"></slot>
+		</div>
+	</div>
+	</template>
+<template id="no1">
+	<div style="text-align: center;margin-bottom: 60px;">
+		<div style="font-size:50px;">
+			<slot name="head"></slot>
+		</div>
+		<div style="min-height: 100px;">
+			<slot name="foot"></slot>
+		</div>
+	</div>
+</template>
+<template id="types">
+	<div>
+		<on4></on4>
+		<on4></on4>
+		<on4></on4>
+		<on4></on4>
+		<on4></on4>
+		<on4></on4>
+		<on4></on4>
+		<on4></on4>
+	</div>
+</template>
+</body>
+<script src="vue.js"></script>
+<script src="all.js"></script>
+<script src="vue-router.js"></script>
+<script src="swiper-4.5.0/dist/js/swiper.js"></script>
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      autoplay:true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+	var router = new VueRouter({
+		routes:[
+			{path:"/",component:{
+				template:"#index",
+				data(){
+					return{
+						arr:[
+			            "https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvZmVkNjAyMDAyZTZiNjRkYjVhZDg0MmEwN2U5Yjg5ODYucG5n.png",
+			            "https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvODBkMjY5NjYzNDJmNTM1ZjdkYmEwMjY2OTNmMmQ5ZjcucG5n.png",
+			           " https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNzY5MDExMmQ0MjIzN2Y5YTg0OWVjNjc0N2NmOGMxYWYucG5n.png"
+              			],
+              			  json:[
+				         		{a:'医疗PPP有望成后起之秀 概念股早盘活跃',b:'当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网...'},
+								{a:'国产高端医疗设备凭高性价比应对“GPS”',b:'当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网...'},
+							   {a:'医疗器械国产化命脉：“供应商”转型',b:'当今最领先的响应式自助建站平台，我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网...'},
+         						], 		     
+					}
+			}
+
+			}},
+			{path:"/product",component:{template:"#product"},children:[
+				      	{path:'main/:main',compmainonent:{template:'#main'}},
+				      	
+				   ]
+					},
+
+			{path:"/news",component:{template:"#news"},children:[
+				      	{path:'type/:type',component:{template:'#types'}},
+				      	
+				   ]
+			},
+			{path:"/join",component:{template:"#join"}},
+			{path:"/contact",component:{
+				template:"#contact",
+				data(){
+					return{
+						arr:[
+			            "https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvZjkyMmI3YTQyZDYxMDQ0MWVmMzI0NjdkZDYxMDJmYzYuanBn.jpg",
+			            "https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvOGJhMDIzYjE1NGFmZWFkM2FjYTI3ZTQ4MmM1ZGM1MjMuanBn.jpg",
+              			],
+					}
+				}
+
+
+		}},
+		]
+
+	})
+Vue.component("mA",{
+	template:"#A",
+	data(){
+		return{
+			a:0
+		}
+	},
+})
+Vue.component("mr",{
+	template:"#no1",
+	data(){
+		return{
+			a:0
+		}
+	},
+})
+	new Vue({
+		el:"#box",
+		router
+	})
+</script>
+</html>

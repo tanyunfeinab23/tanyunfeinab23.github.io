@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+		[v-cloak]{
+			display:none;
+		}
+		 #box{
+	     	padding:0 230px;
+	     }
+		
+		  .pass-head{
+		  	padding: 30px 20px;
+		  	display: flex;
+		  }
+		  .head-left{
+			flex:1;
+		  }
+		   .head-right {
+		  	flex:1;
+		  	text-align: right;
+		  }
+		  .head-left img{
+		  	width: 200px;
+		  	height: 76px;
+		  
+		  }
+		 
+	}
+	#uld{
+		width: 100%;
+		display: flex;
+	}
+	#uld>li{
+		flex:1;
+	}
+	.el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+  
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+   /* text-align: center;*/
+   /* line-height: 200px;*/
+  }
+  
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+   /* line-height: 160px;*/
+	padding: 0px ;
+  }
+  
+  body > .el-container {
+    margin-bottom: 40px;
+  }
+  
+  .el-container:nth-child(5) .el-aside,
+  .el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+  }
+  
+  .el-container:nth-child(7) .el-aside {
+    line-height: 320px;
+  }
+	 
+	/*	 #main {
+            width: 680px;
+            height: 310px;
+            margin: 0 30px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+       #main ul,
+       #main li,
+       #main img {
+            width: 630px;
+            height: 270px;
+        }
+        
+       #main li {
+            position: absolute;
+        }
+        
+        .enter {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -50%;
+            z-index: 9999;
+        }
+        
+        .enter button {
+            width: 300px;
+            height: 200px;
+            border:#000;
+            font-size: 40px;
+            background-color:#000;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            opacity: 0;
+        }*/
+        .ul3{
+        	display: flex;
+        }
+        .ul3 li{
+        	flex: 1;
+        	border:1px solid #ccc;
+        	padding-top: 80px;
+    		padding-bottom: 80px;
+    		text-align: center;
+        }
+        .ul2 li{
+			flex: 1;
+
+        }
+        .div23:hover{
+        	background-color: rgb(0, 52, 73) !important;
+        	color: #fff !important;
+        	
+
+        }
+        /*.div23 a{
+        		color:#fff;
+        	}*/
+        .div23:hover a{
+				color: #fff!important;
+        }
+	</style>
+</head>
+<body>
+	<div id="box" v-cloak=''>
+		<div class="pass-head" style="min-height: 50px;">
+			<div class="head-left" style="min-height:50px">
+				<img src="https://ccdn.goodq.top/caches/6e87fcb6b82084bd1cefe0e3cf607d3e/aHR0cDovLzU2OGNkNGE2Y2ZhMmEudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS8yMGY4NzQ5MmU5ZGZjYjY5ZDhjYzI0YjRkNzEyNDdkNS5wbmc_p_p100_p_3D.png">
+			</div>
+			<div class="head-right " style="padding-top:25px; ">
+				<div class="h-r-top" style="font-size: 13px;">
+					<span class="el-icon-s-custom" style="display: inline-block;margin-bottom: 10px;">登录</span>
+					<span class="el-icon-s-promotion">注册</span>
+				</div>
+				<div class="h-r-bottom" style="font-size: 18px;">
+					<h3 class="el-icon-phone-outline">123- 456- 7890</h3>
+				</div>
+			</div>
+		</div>
+		<div id="app" style="height: 50px;background-color: rgb(141, 144, 149);">
+			<el-row :gutter="20">
+			  <el-col :span="14"><div class="grid-content bg-purple">
+			  	<ul id="uld" style="display: flex;font-size: 14px;color: red;line-height: 50px;background-color: rgb(141, 144, 149);">
+			  		<li></li>
+					<li><a href="#/">首页</a></li>
+					<li class="li23">
+						<a href="#/no1">关于我们</a>
+					</li>
+					<li><a href="#/no2">在线预约</a></li>
+					<li><a href="#/no3">医疗咨询</a></li>
+					<li><a href="#/no4">联系我们</a></li>
+					
+					<li></li>
+				</ul>
+			  </div>
+			</el-col>
+			 <el-col :span="10"><div class="grid-content bg-purple" style="display: flex;font-size: 14px;color: red;line-height: 50px;background-color: rgb(141, 144, 149);border-width: "></div></el-col>
+			</el-row>
+		</div>
+		<div style="min-height:600px;margin-bottom: 100px;">
+			<router-view></router-view>
+		</div>
+		<div style="height:150px;">
+			<div class="head-left" style="min-height:50px ;text-align: center;">
+				<div>
+					<img src="https://ccdn.goodq.top/caches/6e87fcb6b82084bd1cefe0e3cf607d3e/aHR0cDovLzU2OGNkNGE2Y2ZhMmEudDczLnFpZmVpeWUuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNi8wMS8yMGY4NzQ5MmU5ZGZjYjY5ZDhjYzI0YjRkNzEyNDdkNS5wbmc_p_p100_p_3D.png"style="width: 200px;height: 77px; margin-bottom: 30px;">
+					 
+				</div>
+				<p style="display: inline-block; font-size: 12px;color:#A9a9a9" > Copyright © 2006-2016 <span style="font-size: 13px;color: #A9a9a9;">醫療事務所</span></p>
+					  <p style="display: inline-block;font-size: 12px;color:#A9a9a9">經營許可證編號：京CP備01010010號</p>
+			</div>
+		</div>
+	</div>
+	<!-- 首页 -->
+<template id="index">
+	<div>
+		<el-container>
+			<el-main style="width: 340px; border:1px #ccc solid">
+				<img src="img/24.jpg" style="width: 500px;height: 305px;margin-bottom: 7px">
+				  <div class="div23" style="padding: 14px 20px;height: 40px;    background-color: rgb(230, 245, 250); ">
+				    	<i class="el-icon-s-claim" style="line-height: 40px ;display:block; text-align:center;">  <a href="#/">醫療事務所竭誠為您服務</a></i>
+				    </div>
+			</el-main>
+			  <el-aside style="width: 340px; border:1px #ccc solid">
+			    <div style="padding-top: 39px;padding-bottom: 27px;padding-right: 84px;
+			    padding-left: 84px;">
+			    	<div style="width: 100% ;height: 1px;background-color: red;margin-bottom: 30px;"></div>
+				    <ul style="margin-bottom: 30px;">
+				    	<li><h3 style="">营业时间</h3></li>
+				    	<li style="font-size: 14px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期一</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 14px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期二</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 14px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期三</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 14px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期四</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 14px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期五</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 14px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期六</p>
+				    		<p style="text-align:right;display: inline-block;">休息~</p>
+				    	</li>
+				    	<li style="font-size: 14px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期七</p>
+				    		<p style="text-align: right;display: inline-block;">休息~</p>
+				    	</li>
+				    </ul>
+				    <div style="width: 100% ;height: 1px;background-color: red;margin-bottom: 30px;"></div>
+				    </div>
+				    <div class="div23" style="padding: 14px 20px;height: 40px;background-color: rgb(230, 245, 250); ">
+				    	<i class="el-icon-s-claim" style="line-height: 40px ;display:block; text-align:center;"><a href="#/no2">進入在線預訂系統</a> </i>
+				    </div>
+			  </el-aside>	
+		</el-container>
+		<el-container >
+			<el-main style="width: 33%;">
+				<div style="padding-top: 56px;padding-bottom: 56px;padding-right: 50px;padding-left: 50px;box-sizing: border-box;text-align: left;line-height: 30px;margin-bottom: 5px;">
+					<p style="font-size: 12px;color:#808080;">事務所簡介</p>
+					<p style="font-size: 12px;color:#808080;"> 
+						怡怢怣，圤圥夲夳夵壱恀圢圤圥圦圧圩圪咍壱売！圢圤圥夲夳夵壱恀圢圤圥圦圧圩圪咍壱，圢圤怅怆怐怗怘怙怚怛怞怟怡怢怣怤怦怩怭恀圢圤圥圦圧圩圪咍壱。圢圤怅怆怐怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱圢，圤圥夲夳夵壱恀夳夵壱圢圤圥夲夳。夵壱恌恍恎圤圥夲夳圢圤圥夲夳夵壱圢圤夳 ……
+					</p>
+				</div>
+				<div class="div23" style="padding: 14px 20px;height: 40px; background-color: rgb(230, 245, 250); ">
+				    	<i class="el-icon-s-claim" style="line-height: 40px ;display:block; text-align:center;"><a href="#/no1"> 機構簡介</a> </i>
+				    </div>
+			</el-main>
+		  	<el-aside style="width: 33%;">
+		  		<img src="https://ccdn.goodq.top/caches/6e87fcb6b82084bd1cefe0e3cf607d3e/aHR0cHM6Ly81NjhjZDRhNmNmYTJhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvMWJmZGM3ZDRhYTcxZjhkMDU1NTZhM2NiYzgzNGMzMTktNDAweDM3OS5qcGc_p_p100_p_3D.jpg" style="width: 100%;height: 322px;">
+		  		<div class="div23" style="padding: 14px 20px;height: 40px;z-index: 23; background-color: rgb(230, 245, 250); ">
+				    	<i class="el-icon-s-claim" style="line-height: 40px ;display:block; text-align:center;"> 進入在線預訂系統</i>
+				    </div>
+		  	</el-aside>
+		  	<el-aside style="width: 340px; border:1px #ccc solid">
+		  		<div style="padding: 10px 10px 4px 10px;">
+		  			<ul>
+			  			<li style="border-bottom: 1px solid #ccc;margin-bottom: 4px">
+			  				<p style="font: 14px;color: #7F7F7F ;padding-top:4px;">醫療諮詢圢圤圥圦圧圩#7</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;">发布日期：2016-01-27</p>
+			  			</li>
+			  			<li style="border-bottom: 1px solid #ccc;margin-bottom: 4px">
+			  				<p style="font: 14px;color: #7F7F7F;padding-top:4px;">醫療諮詢圢圤圥圦圧圩#6</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;">发布日期：2016-01-27</p>
+			  			</li>
+			  			<li style="border-bottom: 1px solid #ccc;margin-bottom: 4px">
+			  				<p style="font: 14px;color: #7F7F7F;padding-top:4px;">醫療資訊圢圤圥圦圧圩圢圤圥圦圧圩#5</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;">发布日期：2016-01-25</p>
+			  			</li>
+			  			<li style="border-bottom: 1px solid #ccc;margin-bottom: 4px">
+			  				<p style="font: 14px;color: #7F7F7F;padding-top:4px;">醫療資訊圢圤圥圦圧圩圥圧#4</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;">发布日期：2016-01-25</p>
+			  			</li>
+			  			<li style="border-bottom: 1px solid #ccc;margin-bottom: 4px">
+			  				<p style="font: 14px;color: #7F7F7F;padding-top:4px;">醫療資訊資訊#3</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;">发布日期：2016-01-25</p>
+			  			</li>
+			  			<li style="margin-bottom: 4px">
+			  				<p style="font: 14px;color: #7F7F7F;padding-top:4px;">醫療諮詢圢圤圥圦圧圩#2</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 10px;">发布日期：2016-01-25</p>
+			  			</li>
+		  			</ul>
+		  		</div>
+				<div style="padding: 14px 20px;height: 40px;    background-color: rgb(230, 245, 250); ">
+				    <i class="el-icon-s-claim" style="line-height: 40px ;display:block; text-align:center;"> 進入在線預訂系統</i>
+				</div>  
+			</el-aside>	
+		</el-container>
+		<el-container>
+			<el-main style="border:1px solid #ccc;">
+				<div style="padding-top: 60px;padding-bottom: 60px;padding-right: 50px;padding-left: 50px;margin-bottom:71px;">
+					<p style="font-size: 12px;color: #808080;text-align: left;line-height: 23px;">圥圦圧圩圪咍壱圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱圢圤圥夲夳夵壱恀夳夵壱圢圤圥。夲夳夵壱恌恍恎恏恒 恔恖恘恙恜恧恬恺，恽夳夵壱圢圤圥夲夳夵壱夲夳夵壱圢圤圥夲夳夵壱圤圥夲，夳圢圤圥夲夳夵壱圢圤圢圤圥圦圧圩圪咍壱圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱圢圤圥夲夳夵壱。恀夳夵壱圢圤圥夲夳夵壱恌恍恎恏。恒 恔恖恘恙恜恧恬恺夳圢圤圥夲夳夵壱圢圤圢圤圥圦圧圩圪咍壱圢圤怅怆怐，恽夳夵壱圢圤圥夲夳夵壱夲夳夵壱圢圤圥夲夳夵壱圤圥夲夳圢。</p>
+				</div>
+				<div style="padding: 14px 20px;height: 40px;    background-color: rgb(230, 245, 250); ">
+				    <i class="el-icon-s-claim" style="line-height: 40px ;display:block; text-align:center;"> 進入在線預訂系統</i>
+				</div> 
+			</el-main>
+		  <el-aside width="340px" style="border:1px solid #ccc;">
+		  		<img src="img/love.jpg" style="width:100%;height: 300px; ">
+		  		<div style="padding: 14px 20px;height: 40px;    background-color: rgb(230, 245, 250); ">
+				    <i class="el-icon-s-claim" style="line-height: 40px ;display:block; text-align:center;"> 進入在線預訂系統</i>
+				</div>
+		  </el-aside>	
+		</el-container>
+	</div>
+</template>
+<!-- 关于我们 -->
+<template id="no1">
+	<div>
+		<el-container>
+		  <el-container>
+		    <el-aside min-width="200px"style="padding-top: 60px;padding-left: 80px;padding-right:60px;border:1px solid #ccc; ">
+		    	<h2 style="color: #003449;font-size: 22px;">關 於 我 們</h2>
+		    	<p style="color: #003449;font-size: 16px;">CONTACT US</p>
+		    </el-aside>
+		    <el-container>
+		      <el-main style="border:1px #ccc solid; ">
+		      	<img src="https://ccdn.goodq.top/caches/6e87fcb6b82084bd1cefe0e3cf607d3e/aHR0cHM6Ly81NjhjZDRhNmNmYTJhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvMWIzMzMxZDNhZDI2NTlhZGVkZTVjNDEyOGI0MWExNDAuanBn.jpg" style="width: 100%;height: l45px;">
+		      	<div style="padding:40px 0 20px 0;background-color: rgb(230, 245, 250); ">
+				    <p style=" text-align:center;font-size: 20px;color: #808080;"> 機 構 簡 介</p>
+				    <p style="text-align:center;font-size: 16px;color: #808080">Introduction </p>
+				</div>
+				<div style="border:1px #ccc solid;padding-top: 20px;padding-bottom: 40px;padding-right: 45px;padding-left: 50px;">
+		      		<p style="text-indent:2em;text-align: left;margin-bottom: 30px;font-size: 14px;color: #a9a9a9;">応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢；峣峤屴屵屶屷宓宔宖忟忡，忢忣忥忦忨忩忪忬忭忮忯忰忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍怏怐怑怓怔，怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡恦，恻恽恾恿悀悁悂悃悆悇悈悊。応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢；峣峤屴屵屶屷宓宔宖忟忡，忢忣忥忦忨忩忪忬忭忮忯忰忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍怏怐怑怓怔，怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡恦，恻恽恾恿悀悁悂悃悆悇悈悊。</p>
+		      		<p style="text-indent:2em;text-align: left;margin-bottom: 30px;font-size: 14px;color: #a9a9a9;"> 朲朳枛朸桸桹桺奿妀恂恃恄恅恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡。忣忥忦忨忩忪忬忭忮忯忰。忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍怏怐怑怓怔怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒忢忣忥忦忨忩忪忬忭忮忯忰。忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎.攴 朰朲朳枛朸桸桹桺奿妀恂恃恄恅恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡。忣忥忦忨忩忪忬忭忮忯忰。忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅 怆怇怈怉怊怋怌怍怏怐怑怓怔，怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒忢忣忥忦忨忩忪忬忭忮忯忰。忱忲忳 忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎。</p>
+		      		<p style="text-indent:2em;text-align: left;margin-bottom: 30px;font-size: 14px;color: #a9a9a9;"> 怦怩怫怬怭怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒忢忣忥忦忨忩忪忬忭忮忯忰。忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎.攴 朰朲朳枛朸桸桹桺奿妀恂恃恄恅恒恇恈恉恊恌恍恎恏。</p>
+
+		      		
+		      </div>
+		      </el-main>
+		    </el-container>
+		  </el-container>
+		</el-container>
+	</div>
+</template>
+<!-- 在线预约 -->
+<template id="no2">
+	<div>
+		<el-container>
+		  <el-container>
+		     <el-aside min-width="200px" style="border:1px solid #ccc">
+		     	<div style="padding: 60px;border:1px solid #ccc; text-align:center; ">
+		     		<h2 style="color: #003449;font-size: 22px;">在线预约</h2>
+		    		<p style="color: #003449;font-size: 16px;">B  O  O  K  I  N  G</p>
+		     	</div>
+		    	
+		    </el-aside>
+		    <el-main>
+		    	<ul class="ul2" style="display: flex;padding-top: 40px;">
+		    		<li>
+		    			<div style="width: 20px;height: 20px;border: 1px #ccc solid;padding: 30px;border-radius: 50%;text-align: center;margin:0 auto;font-size: 23px;color: #003449;">
+		    				1
+		    			</div>
+		    			<p>選擇科室</p>
+		    		</li>
+		    		<li>
+		    			<div style="width: 20px;height: 20px;border: 1px #ccc solid;padding: 30px;border-radius: 50%;text-align: center;margin:0 auto;font-size: 23px;color: #003449;">
+		    				2
+		    			</div>
+		    			<p>選擇醫生</p>
+		    		</li>
+		    		<li>
+		    			<div style="width: 20px;height: 20px;border: 1px #ccc solid;padding: 30px;border-radius: 50%;text-align: center;margin:0 auto;font-size: 23px;color: #003449;">
+		    				3
+		    			</div>
+		    			<p>點擊預定</p>
+		    		</li>
+		    		<li>
+		    			<div style="width: 20px;height: 20px;border: 1px #ccc solid;padding: 30px;border-radius: 50%;text-align: center;margin:0 auto;font-size: 23px;color: #003449;">
+		    				4
+		    			</div>
+		    			<p>預約完成</p>
+		    		</li>
+		    	</ul>
+		    </el-main>
+		  </el-container>
+		</el-container>
+		<el-container>
+		  <el-container>
+		     <el-aside min-width="200px" style="border:1px solid #ccc ;border-top:none;">
+		     	<div style="padding: 60px;border:1px solid #ccc; text-align:center; ">
+		     		<h2 style="color: #003449;font-size: 22px;">臨 床 科 室</h2>
+		    		<p style="color: #003449;font-size: 16px;">D E P A R T M E N T</p>
+		     	</div>
+		    	
+		    </el-aside>
+		    <el-main>
+		    	<ul class="ul3">
+		    		<li>耳鼻喉科</li>
+		    		<li>兒科</li>
+		    		<li>中醫科</li>
+		    		<li>普通外科</li>
+		    	</ul>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</template>
+<!-- 医疗咨询 -->
+<template id="no3">
+	<div>
+		<el-container>
+		  <el-container>
+		    <el-aside min-width="200px"style="padding-top: 60px;padding-left: 60px;padding-right:60px;border:1px solid #ccc;text-align:center; ">
+		    	<h2 style="color: #003449;font-size: 22px;">醫 療 資 訊</h2>
+		    	<p style="color: #003449;font-size: 16px;">M E D I C A L N E W S</p>
+		    </el-aside>
+		    <el-container>
+		      <el-main style="border:1px #ccc solid; padding:60px 40px;">
+		      	<ul>
+		      		<li style="border-bottom: 1px #ccc solid;margin-bottom: 23px;">
+		      			<p style="font: 14px;color: #7F7F7F;padding-top:4px;text-align: left;">醫療諮詢圢圤圥圦圧圩#7</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;text-align: left;">发布日期：2016-01-27未分类</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢；峣峤屴屵屶屷宓宔宖忟忡，忢忣忥忦忨忩忪忬忭忮忯忰忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍怏怐怑怓怔，怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡恦，恻恽恾恿悀悁悂悃悆悇悈悊。応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢；峣峤屴屵屶屷宓宔宖忟忡，忢忣忥忦忨忩忪忬忭忮忯忰忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍怏怐怑怓怔，怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡恦，恻恽恾恿悀悁悂悃悆悇悈悊。</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢；峣峤屴屵屶屷宓宔宖忟忡，忢忣忥忦忨忩忪忬忭忮忯忰忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍怏怐怑怓怔，怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡恦，恻恽恾恿悀悁悂悃悆悇悈悊。応损捠捡换，攴朰朲朳枛朸桸桹桺奿妀。夲夳夵壱売壳圢圤圥圦圧圩圪囡団囤囥咍咎，咐咑厺厼厽桻桼忝忞帄帇帉帊峢；峣峤屴屵屶屷宓宔宖忟忡，忢忣忥忦忨忩忪忬忭忮忯忰忱忲忳忴念忶汹忸忹忺忻忼忾忿怂，怃怄怅怆怇怈怉怊怋怌怍怏怐怑怓怔，怗怘怙怚怛怞怟怡怢怣怤怦怩怫怬怭。怮怯怰，怲怳怴怵怶怷怸怹怺怼悙怿。恀恁恂恃恄恅，恒恇恈恉恊恌恍恎恏。恑恒！恓恔恖恗恘恙恚恛恜恝恞恠恡恦，恻恽恾恿悀悁悂悃悆悇悈悊。</p>
+		      			<div style="text-align: right;margin-bottom: 23px; "><a href="" style="color: #1E73be;font-size: 16px;">阅读正文</a></div>
+		      		</li>
+					<li style="border-bottom: 1px #ccc solid;margin-bottom: 23px;">
+		      			<p style="font: 14px;color: #7F7F7F;padding-top:4px;text-align: left;">醫療諮詢圢圤圥圦圧圩#6</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;text-align: left;">发布日期：2016-01-27未分类</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">夳夵壱売壳圢圤圥圦圧圩圪咍，壱売壳圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱売壳圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売壳夲夳夵壱売壳圢圤圥圦夲。圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。</p>
+		   
+		      			<div style="text-align: right;margin-bottom: 23px; "><a href="" style="color: #1E73be;font-size: 16px;">阅读正文</a></div>
+		      		</li>
+		      		<li style="border-bottom: 1px #ccc solid;margin-bottom: 23px;">
+		      			<p style="font: 14px;color: #7F7F7F;padding-top:4px;text-align: left;">醫療資訊圢圤圥圦圧圩圢圤圥圦圧圩#5</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;text-align: left;">发布日期：2016-01-27未分类</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">夳夵壱売壳圢圤圥圦圧圩圪咍，壱売壳圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱売壳圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売壳夲夳夵壱売壳圢圤圥圦夲。圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。</p>
+		      			<div style="text-align: right;margin-bottom: 23px; "><a href="" style="color: #1E73be;font-size: 16px;">阅读正文</a></div>
+		      		</li>
+		      		<li style="border-bottom: 1px #ccc solid;margin-bottom: 23px;">
+		      			<p style="font: 14px;color: #7F7F7F;padding-top:4px;text-align: left;">醫療諮詢圢圤圥圦圧圩#4</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;text-align: left;">发布日期：2016-01-27未分类</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">夳夵壱売壳圢圤圥圦圧圩圪咍，壱売壳圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱売壳圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売壳夲夳夵壱売壳圢圤圥圦夲。圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。</p>
+		      			
+		      			<div style="text-align: right;margin-bottom: 23px; "><a href="" style="color: #1E73be;font-size: 16px;">阅读正文</a></div>
+		      		</li>
+		      		<li style="border-bottom: 1px #ccc solid;margin-bottom: 23px;">
+		      			<p style="font: 14px;color: #7F7F7F;padding-top:4px;text-align: left;">醫療諮詢圢圤圥圦圧圩#3</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;text-align: left;">发布日期：2016-01-27未分类</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">夳夵壱売壳圢圤圥圦圧圩圪咍，壱売壳圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱売壳圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬夵壱売壳圢圤圥夲夳夵壱売壳夳夵壱売壳圢圤圥夲夳夵壱売，壳圢圤夳夵壱売壳夲夳夵壱売壳圢圤圥圦夲圢圤圥夲夳夵壱売壳恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恽夳夵壱売壳圢圤圥夲夳夵夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳壱売圢圤圥夲夳夵壱恀夳夵壱売壳圢圤夳夵壱売壳恌恍恎恔恖恘恙恜恧恬夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。。</p>
+		      
+		      			<div style="text-align: right;margin-bottom: 23px; "><a href="" style="color: #1E73be;font-size: 16px;">阅读正文</a></div>
+		      		</li>
+		      		<li style="border-bottom: 1px #ccc solid;margin-bottom: 23px;">
+		      			<p style="font: 14px;color: #7F7F7F;padding-top:4px;text-align: left;">醫療諮詢圢圤圥圦圧圩#2</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;text-align: left;">发布日期：2016-01-27未分类</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">夳夵壱売壳圢圤圥圦圧圩圪咍，壱売壳圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱売壳圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売壳夲夳夵壱売壳圢圤圥圦夲。圢圤圥夲夳夵壱売壳。恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。</p>
+		      			<div style="text-align: right;margin-bottom: 23px; "><a href="" style="color: #1E73be;font-size: 16px;">阅读正文</a></div>
+		      		</li>
+		      		<li style="margin-bottom: 23px;">
+		      			<p style="font: 14px;color: #7F7F7F;padding-top:4px;text-align: left;">醫療諮詢圢圤圥圦圧圩#1</p>
+			  				<p style="font-size: 12px;color: #b5b5b5;margin-bottom: 6px;text-align: left;">发布日期：2016-01-27未分类</p>
+		      			<p style="text-align: left;margin-bottom: 30px;font-size: 13px;color: #adadad;">夳夵壱売壳圢圤圥圦圧圩圪咍，壱売壳圢圤怅怆怐，怗怘怙怚怛怞怟怡怢怣怤怦怩怭夳夵壱売壳圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売壳夲夳夵壱売壳圢圤圥圦夲。圢圤圥夲夳夵壱売壳。恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。壱売圢圤圥夲夳夵壱売壳。恀夳夵壱売壳圢圤圥夲夳夵壱売壳恌恍恎恏。恒恔恖恘恙恜恧恬恺，恽夳夵壱売壳圢圤圥夲夳夵壱売壳。夲夳夵壱売壳圢圤圥夲夳夵壱売壳圢圤夳夵。</p>
+		      			<div style="text-align: right;margin-bottom: 23px; "><a href="" style="color: #1E73be;font-size: 16px;">阅读正文</a></div>
+		      		</li>
+		      	</ul>
+		      </el-main>
+		    </el-container>
+		  </el-container>
+		</el-container>
+	</div>
+</template>
+<!-- 联系我们-->
+<template id="no4">
+	<div>
+		<el-container>
+		  <el-container>
+		     <el-aside min-width="200px" style="border:1px solid #ccc">
+		     	<div style="padding: 60px; text-align:center; ">
+		     		<h2 style="color: #003449;font-size: 22px;">联系我们</h2>
+		    		<p style="color: #003449;font-size: 16px;">C O N T A C T U S</p>
+		     	</div>
+		    	
+		    </el-aside>
+		    <el-main>
+		    	<img src="img/24.jpg" style="width: 100%;height:300px; ">
+		    </el-main>
+		  </el-container>
+		</el-container>
+		<el-container>
+		  <el-container>
+		     <el-aside min-width="200px" style="border:1px solid #ccc ;border-top:none;">
+		     	 <div style="padding-top: 39px;padding-bottom: 27px;padding-right: 60px;
+			    padding-left: 60px;">
+				    <ul style="margin-bottom: 30px;line-height: 23px;">
+				    	<li><h3 style="font-size: 14px;">营业时间</h3></li>
+				    	<li style="font-size: 12px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期一</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 12px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期二</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 12px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期三</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 12px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期四</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 12px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期五</p>
+				    		<p style="text-align: right;display: inline-block;">08:30~17:30</p>
+				    	</li>
+				    	<li style="font-size: 12px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期六</p>
+				    		<p style="text-align: right;display: inline-block;">休息~</p>
+				    	</li>
+				    	<li style="font-size: 12px;">
+				    		<p style="text-align: left;display: inline-block;margin-right: 23px;">星期七</p>
+				    		<p style="text-align: right;display: inline-block;">休息~</p>
+				    	</li>
+				    </ul>
+				    </div>
+		    	
+		    </el-aside>
+		    <el-main>
+		    	<div style="padding-top: 60px;padding-bottom: 27px;padding-left:180px;line-height: 30px;text-align: left;">
+		    		<p>地址：香港中环忿怂怃恾悈悊朰恓恙恾恿悀忾忿怂</p>
+		    		<p>电话：0100-1000 0000</p>
+		    		<p>电话：0100-1000 0000</p>
+		    	</div>
+		    </el-main>
+		  </el-container>
+		</el-container>
+	</div>
+</template>
+</body>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="all.js"></script>
+<script type="text/javascript">
+
+	var router =new VueRouter({
+		routes:[
+			{path:'/',component:{template:"#index",
+			   data(){
+			   		return{
+			   			arr:[
+			            "https://ccdn.goodq.top/caches/6e87fcb6b82084bd1cefe0e3cf607d3e/aHR0cHM6Ly81NjhjZDRhNmNmYTJhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvNzE2NTk3NGYzODE0ZWE5MTdmYTlmZjU2NzA2NDAzNjguanBn.jpg",
+			            "https://ccdn.goodq.top/caches/6e87fcb6b82084bd1cefe0e3cf607d3e/aHR0cHM6Ly81NjhjZDRhNmNmYTJhLnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDEvNzE2NTk3NGYzODE0ZWE5MTdmYTlmZjU2NzA2NDAzNjguanBn.jpg",
+			           " https://ccdn.goodq.top/caches/40c05a76d970c388d38b924930a6f580/aHR0cHM6Ly81N2E3ZTZhYWYyZjc4LnQ3My5xaWZlaXllLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTYvMDkvNzY5MDExMmQ0MjIzN2Y5YTg0OWVjNjc0N2NmOGMxYWYucG5n.png"
+              			],
+			   		}
+			   }
+				}},
+			{path:'/no1',component:{template:"#no1"}},
+			{path:'/no2',component:{template:"#no2"}},
+			{path:'/no3',component:{template:"#no3"}},
+			{path:'/no4',component:{template:"#no4"}},
+		]
+	})
+	new Vue({
+		el:"#box",
+		
+		router
+	})
+
+</script>
+</html>
